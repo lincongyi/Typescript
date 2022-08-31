@@ -17,7 +17,8 @@
     isSelected: boolean;
   }
 
-  let cardBrand: Array<ICardBrand> = [
+  // let cardBrand: Array<ICardBrand> = [
+  let cardBrand: ICardBrand[] = [
     { id: 1, name: "Apollo", isSelected: false },
     { id: 2, name: "Koenigsegg", isSelected: false },
     { id: 3, name: "Maserati", isSelected: false },
@@ -36,6 +37,8 @@
   console.log(getLength1("hello world"));
   console.log(getLength1([1, 2, 3, 4]));
 
+  // 箭头函数泛型
+  // let fn = <T>(arg: { length: number }): number => arg.length;
   // 要求传入的必须是一个数组
   let getLength2 = <T>(arg: T[]): number => {
     return arg.length;
@@ -50,7 +53,7 @@
     push(...item: T[]): void {
       this.data.push(...item);
     }
-    shift(): T {
+    shift(): T | undefined {
       return this.data.shift();
     }
   }

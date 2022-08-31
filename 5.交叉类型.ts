@@ -4,6 +4,7 @@
   interface Person {
     name: string;
     age: number;
+    company: string;
   }
 
   interface Employee {

@@ -1,5 +1,4 @@
 // type类型
-
 {
   type User = {
     name: string;

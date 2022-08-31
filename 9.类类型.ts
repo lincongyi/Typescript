@@ -1,18 +1,15 @@
 // 类类型
 
 interface IEvent1 {
-  fly();
+  fly(): void;
 }
 
 interface IEvent2 {
-  swim();
+  swim(): void;
 }
 
 class MyEvent1 implements IEvent1 {
-  name: string;
-  constructor(name) {
-    this.name = name;
-  }
+  constructor(public name: string) {}
   fly() {
     throw new Error("Method not implemented.");
   }

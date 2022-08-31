@@ -27,6 +27,7 @@
   // 或者组合
   type TUser4 = TUser1 | TUser2;
 
+  // 接口的继承，相当于合并
   interface IMember extends IUser1 {
     gender: number;
   }

@@ -1,7 +1,8 @@
 // 联合类型
 
-const sayHi = (name: string | undefined): void => {
-  console.log(`hello ${name}`);
+const sayHi = (name: string | undefined | null): void => {
+  let myName: string = name!;
+  console.log(`hello ${myName}`);
 };
 sayHi("cy");
 
@@ -60,9 +61,12 @@ type myType = {
   };
 };
 
-// let getMyType: myType = {
-//   type: "get",
-//   resize: {
-//     detail: {},
-//   },
-// };
+let getMyType: myType = {
+  type: "get",
+  resize: {
+    detail: {
+      width: 100,
+      height: 200,
+    },
+  },
+};

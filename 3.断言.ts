@@ -2,7 +2,7 @@
 
 // 1.“尖括号” 语法
 let str = "hello world";
-let strLength: number = (<string>str).length;
+let strLength = (<string>str).length;
 console.log(strLength);
 
 // 2.as 语法
@@ -42,7 +42,8 @@ function enumFn(arg: boolean) {
   return arg ? "1" : 0;
 }
 
-let enumFnRes = enumFn(false) as string;
+let enumFnRes = enumFn(false) as string; // 强制告诉ts enumFnRes是string类型
+// let enumFnRes:string = enumFn(false);
 console.log("enumFnRes", enumFnRes);
 
 let myLink1 = "www.163.com"; // 系统默认转string类型
@@ -50,12 +51,14 @@ const myLink2 = "www.baidu.com"; // const定义的直接是值类型
 let myLink3 = "www.sina.com" as const; // string转值类型
 
 let a = 20 as const,
+  // a = 30, // 值类型无法重新赋值
   b = "hello";
 const myArr = [a, b, 100, false, "cccccc"] as const;
-const myObj = {
+let myObj = {
   msg: b,
   age: a,
 } as const;
+// myObj.age = 30;
 let myValue = myArr[1];
 myValue = "world";
 
@@ -87,5 +90,12 @@ class MyHtml {
   }
 }
 
+// class MyHtml {
+//   constructor(public el: HTMLDivElement) {}
+//   getHtml() {
+//     return this.el.innerHTML;
+//   }
+// }
+
 let myHtml = new MyHtml(myDiv);
-// myHtml.getHtml()
+// myHtml.getHtml();

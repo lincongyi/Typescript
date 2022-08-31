@@ -65,12 +65,12 @@ let myRecord2: Record<TMyRecord1, TMyRecord2> = {
   Pick:从 T 中取出 一系列 K 的属性
   type Pick<T, K extends keyof T> = { [P in K]: T[P] };
 */
-type TPick = "name" | "gender";
 interface IPick {
   name: string;
   age: number;
   gender: number;
 }
+type TPick = "name" | "gender";
 type TMyPick = Pick<IPick, TPick>;
 
 /*

@@ -13,7 +13,6 @@
     constructor(name: string, age: number, public gender: Gender) {
       this.name = name;
       this.age = age;
-      this.gender = gender;
     }
     getUser() {
       return `${this.name} is ${this.age}'s old`;
@@ -39,9 +38,9 @@
   /*
     方法访问
   */
-  // 实例对象无法调用protected方法
+  // 实例对象无法直接调用protected方法
   // console.log(user1.getGender());
-  // 通过调用public方法里访问protected方法
+  // 只能通过调用public方法里访问protected方法
   // console.log(user1.getUserGender);
 
   //
@@ -52,11 +51,12 @@
       this.employId = employId;
     }
     getEmployeeGender() {
-      return this.getGender();
+      return `Employee ${this.getGender()}`;
     }
   }
 
   let employee1 = new Employee("jozy", 22, Gender.FEMALE, 101);
+  console.log(employee1);
   // 继承的子类也无法直接访问父类的protected方法
   // console.log(employee1.getGender());
   console.log(employee1.getEmployeeGender());
