@@ -6,7 +6,7 @@ let strLength = (<string>str).length;
 console.log(strLength);
 
 // 2.as 语法
-let num = 100;
+let num = 1;
 let numPlus: number = ++(num as number);
 let num2String: string = (num as number).toFixed(2);
 console.log(numPlus);
@@ -54,6 +54,7 @@ let a = 20 as const,
   // a = 30, // 值类型无法重新赋值
   b = "hello";
 const myArr = [a, b, 100, false, "cccccc"] as const;
+// myArr[2] = 101 // readonly不可修改
 let myObj = {
   msg: b,
   age: a,

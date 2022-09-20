@@ -43,7 +43,6 @@
   // 只能通过调用public方法里访问protected方法
   // console.log(user1.getUserGender);
 
-  //
   class Employee extends User {
     employId: number;
     constructor(name: string, age: number, gender: Gender, employId: number) {
