@@ -34,8 +34,8 @@
   // 推断字符串字面量类型
   type get7<T extends string> = T extends `${infer First}${infer _}` ? First : never
   type I = get7<'hello world'> // I: h
-  type get8<T extends string> = T extends `${infer Left}-${infer Right}` ? Left : never
-  type J = get8<'2020-02-02'> // J: 2020
+  type get8<T extends string> = T extends `${infer Left}-${infer Right}` ? `${Left}${get8<Right>}` : T // 递归去掉'-'
+  type J = get8<'2020-02-02'> // J: 20200202
   type get9<T extends string> = T extends `${infer Left}:${infer Right}` ? Capitalize<Right> : never
   type K = get9<'hobby:football'> // K: Football
 
