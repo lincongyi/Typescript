@@ -5,7 +5,7 @@
 
   const foo = (arg1: string, arg2: number): void => {}
 
-  type res = typeof foo // (arg1: string, arg2: number): void
+  type res = typeof foo // (arg1: string, arg2: number) => void
 
   type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer K) => any ? K : never
 
