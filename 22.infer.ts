@@ -48,4 +48,12 @@
 
   type Infer<T> = T extends Array<any> ? T[number] : T
   type myInfer = Infer<['1', 2, 3, 4]> // 2 | 3 | 4 | '1'
+
+  type UnionToIntersection<U> = (U extends any ? (arg: U) => void : never) extends (arg: infer R) => void ? R : never
+
+  type T1 = { a: 'a' } | { b: 'b' }
+  type T2 = UnionToIntersection<T1> // { a: 'a'; } & { b: 'b'; }
+
+  type T3 = number | string
+  type T4 = UnionToIntersection<T3> // never
 }
