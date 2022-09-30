@@ -13,6 +13,8 @@ let isArray2: Array<string> = ['a', 'b', 'c']
 let arr1: string[] = ['a', 'b']
 let arr2: number[] = [1, 2, 3]
 let arr3: (string | number)[] = [1, 2, 3, 'a', 'b']
+let arr4: string[] | number[] = ['a', 'b', 'c']
+arr4 = [1, 2, 3]
 
 let isAny: any = 30 // Any类型，相当于对该变量关闭了ts的检测
 isAny = 'good'
@@ -26,5 +28,3 @@ let myNull: null = null // Null类型
 const fn = (): void => {
   console.log('hello ts')
 }
-
-let arr4: (string | number)[] = ['a', 2]
