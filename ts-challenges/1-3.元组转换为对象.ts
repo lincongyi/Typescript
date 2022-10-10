@@ -7,9 +7,12 @@
 
   type res = typeof tuple[number] // 'tesla' | 'model 3' | 'model X' | 'model Y'
 
+  type result = TupleToObject<typeof tuple> // expected { tesla: 'tesla', 'model 3': 'model 3', 'model X': 'model X', 'model Y': 'model Y'}
+
+  /*
+    answer:
+  */
   type TupleToObject<T extends readonly string[]> = {
     [key in T[number]]: key
   }
-
-  type result = TupleToObject<typeof tuple> // expected { tesla: 'tesla', 'model 3': 'model 3', 'model X': 'model X', 'model Y': 'model Y'}
 }

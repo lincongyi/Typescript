@@ -4,7 +4,11 @@
 
     从联合类型T中排除U的类型成员，来构造一个新的类型。
   */
-  type MyExclude<T, U> = T extends U ? never : T
 
   type Result = MyExclude<'a' | 'b' | 'c', 'a'> // 'b' | 'c'
+
+  /*
+    answer:
+  */
+  type MyExclude<T, U> = T extends U ? never : T
 }

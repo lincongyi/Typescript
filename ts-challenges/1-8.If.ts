@@ -5,8 +5,11 @@
     C 只能是 true 或者 false， T 和 F 可以是任意类型。
   */
 
-  type If<T extends boolean, U, V> = T extends true ? U : V
-
   type A = If<true, 'a', 'b'> // expected to be 'a'
   type B = If<false, 'a', 'b'> // expected to be 'b'
+
+  /*
+    answer:
+  */
+  type If<T extends boolean, U, V> = T extends true ? U : V
 }

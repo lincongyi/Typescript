@@ -7,7 +7,11 @@
 
   type ExampleType = Promise<string>
 
-  type MyAwaited<T> = T extends Promise<infer U> ? (U extends Promise<unknown> ? MyAwaited<U> : U) : never
-
   type Result = MyAwaited<ExampleType> // string
+
+  /*
+    answer:
+  */
+  // type MyAwaited<T> = T extends Promise<infer R> ? R : never
+  type MyAwaited<T> = T extends Promise<infer U> ? (U extends Promise<unknown> ? MyAwaited<U> : U) : never
 }

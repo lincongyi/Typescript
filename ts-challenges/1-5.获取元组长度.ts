@@ -5,9 +5,14 @@
 
   type tesla = ['tesla', 'model 3', 'model X', 'model Y']
   type spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT']
-
-  type Length<T extends string[]> = T['length']
+  type numArr = [1, 3, 5]
 
   type teslaLength = Length<tesla> // expected 4
   type spaceXLength = Length<spaceX> // expected 5
+  type numArrLength = Length<numArr> // expected 3
+
+  /*
+    answer:
+  */
+  type Length<T extends unknown[]> = T['length']
 }

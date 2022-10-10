@@ -17,10 +17,13 @@
     description: 'foobar'
   }
 
+  todo.title = 'Hello'
+  todo.description = 'barFoo'
+
+  /*
+    answer:
+  */
   type MyReadonly<T> = {
     readonly [key in keyof T]: T[key]
   }
-
-  todo.title = 'Hello'
-  todo.description = 'barFoo'
 }
