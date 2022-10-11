@@ -7,8 +7,6 @@
 
   type res = typeof foo // (arg1: string, arg2: number) => void
 
-  type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer K) => any ? K : never
-
   type FunctionParamsType = MyParameters<typeof foo> // [arg1: string, arg2: number]
 
   type myFoo = {
@@ -16,4 +14,12 @@
   }
 
   type myFunctionParamsType = MyParameters<myFoo>
+
+  /*
+    answer:
+  */
+
+  // type MyParameters<T> = T extends (...args: infer P) => void ? P : never
+
+  type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer K) => any ? K : never
 }

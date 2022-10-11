@@ -21,11 +21,15 @@
     readonly y: 'hey'
   }
 
+  type Todo = DeepReadonly<X> // should be same as `Expected`
+
+  /*
+    answer:
+  */
+
   type DeepReadonly<T> = T extends any
     ? {
         readonly [key in keyof T]: T[key] extends object ? DeepReadonly<T[key]> : T[key]
       }
     : never
-
-  type Todo = DeepReadonly<X> // should be same as `Expected`
 }

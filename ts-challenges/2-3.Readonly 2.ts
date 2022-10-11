@@ -11,6 +11,21 @@
     completed: boolean
   }
 
+  type res = MyReadonly2<Todo, 'title' | 'description'>
+
+  const todo: MyReadonly2<Todo, 'title' | 'description'> = {
+    title: 'Hey',
+    description: 'foobar',
+    completed: false
+  }
+
+  todo.title = 'Hello' // Error: cannot reassign a readonly property
+  todo.description = 'barFoo' // Error: cannot reassign a readonly property
+  todo.completed = true // OK
+
+  /*
+    answer:
+  */
   type MyExclude<T, U> = T extends U ? never : T
 
   type MyReadonly2<T, U extends keyof T> = {
@@ -24,16 +39,4 @@
   // } & {
   //   readonly [key in U]: T[key]
   // }
-
-  type res = MyReadonly2<Todo, 'title' | 'description'>
-
-  const todo: MyReadonly2<Todo, 'title' | 'description'> = {
-    title: 'Hey',
-    description: 'foobar',
-    completed: false
-  }
-
-  todo.title = 'Hello' // Error: cannot reassign a readonly property
-  todo.description = 'barFoo' // Error: cannot reassign a readonly property
-  todo.completed = true // OK
 }

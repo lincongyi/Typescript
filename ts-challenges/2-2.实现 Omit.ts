@@ -11,13 +11,16 @@
     completed: boolean
   }
 
-  type MyOmit<T, U> = {
-    [key in keyof T as key extends U ? never : key]: T[key]
-  }
-
   type TodoPreview = MyOmit<Todo, 'description' | 'title'>
 
   const todo: TodoPreview = {
     completed: false
+  }
+
+  /*
+    answer:
+  */
+  type MyOmit<T, U> = {
+    [key in keyof T as key extends U ? never : key]: T[key]
   }
 }

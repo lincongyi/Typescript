@@ -10,7 +10,10 @@
 
   type res = typeof fn // (v: boolean) => 1 | 2
 
-  type MyReturnType<T> = T extends (...args: any[]) => infer X ? X : never
-
   type a = MyReturnType<typeof fn> // 应推导出 "1 | 2"
+
+  /*
+    answer:
+  */
+  type MyReturnType<T> = T extends (...args: any[]) => infer P ? P : never
 }
