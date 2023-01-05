@@ -52,13 +52,13 @@ interface IRecord {
 let myRecord1: Record<TRecord, IRecord> = {
   Zoe: { id: '001', age: 18 },
   Jessica: { id: '002', age: 19 },
-  Ethz: { id: '003', age: 20 }
+  Ethz: { id: '003', age: 20 },
 }
 type TMyRecord1 = 'name' | 'age'
 type TMyRecord2 = string | number
 let myRecord2: Record<TMyRecord1, TMyRecord2> = {
   name: 'Mosse',
-  age: '222'
+  age: '222',
 }
 
 /*

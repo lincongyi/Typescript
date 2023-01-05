@@ -51,4 +51,16 @@
     这种情况就无法使用 in 关键来辨别类型了
     主要作用是：让复杂类型的收窄变成简单类型的对比
   */
+
+  const person = {
+    id: 1,
+    name: 'Grace',
+    age: 20
+  }
+
+  function getInfo<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key]
+  }
+
+  let name = getInfo(person, 'name')
 }
